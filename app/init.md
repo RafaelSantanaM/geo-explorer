@@ -1,0 +1,14 @@
+"""RELATÓRIO FICTÍCIO"""
+
+Tecnologia utilizada:
+IBM BOB
+GIT/GITHUB
+PYTHON
+JAVASCRIPT
+SQL
+
+
+Modelos utilizados:
+CLAUDE OPUS
+GEMINI HAIKU
+GPT
