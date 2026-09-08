@@ -1,0 +1,622 @@
+{
+  "versao": "1.0.0",
+  "projeto": "Geo-Explorer",
+  "descricao": "Base de dados fictícia de trilhas de aprendizagem para o Geo-Explorer (Bootcamp IBM Bob - DIO)",
+  "trilhas": [
+    {
+      "id": "python",
+      "nome": "Python Essentials & Data Explorer",
+      "descricao": "Aprenda lógica de programação, manipulação de dados e automação com Python moderno.",
+      "icone": "🐍",
+      "niveis": {
+        "iniciante": {
+          "titulo": "Fundamentos de Python",
+          "carga_horaria": 20,
+          "objetivo": "Dominar variáveis, tipos primitivos, estruturas condicionais, laços de repetição e funções básicas.",
+          "modulos": [
+            {
+              "nome": "Sintaxe Básica e Variáveis",
+              "descricao": "Primeiros passos no Python, tipos numéricos, strings e operações aritméticas.",
+              "topicos": ["Variáveis e Tipagem Dinâmica", "Operadores Matemáticos e Lógicos", "Entrada e Saída com input/print"]
+            },
+            {
+              "nome": "Controle de Fluxo e Funções",
+              "descricao": "Decisões e repetições na prática com blocos lógicos.",
+              "topicos": ["Condicionais if, elif e else", "Loops for e while", "Definição de Funções e Escopo"]
+            },
+            {
+              "nome": "Estruturas de Dados Essenciais",
+              "descricao": "Armazenamento e manipulação de coleções de dados.",
+              "topicos": ["Listas e Métodos de Lista", "Tuplas e Conjuntos (Sets)", "Dicionários (chave-valor)"]
+            }
+          ],
+          "desafio": {
+            "id": "py-ini-01",
+            "titulo": "Calculadora de Distância em Coordenadas Simples",
+            "enunciado": "Implemente uma função chamada `calcular_distancia_manhattan(ponto_a, ponto_b)` que receba duas tuplas `(x, y)` representando coordenadas no plano cartesiano e retorne a distância de Manhattan (|x1 - x2| + |y1 - y2|).",
+            "entrada_exemplo": "ponto_a = (1, 2), ponto_b = (4, 6)",
+            "saida_exemplo": "7",
+            "template_codigo": "def calcular_distancia_manhattan(ponto_a: tuple, ponto_b: tuple) -> int:\n    # TODO: Implemente a soma das diferenças absolutas\n    pass\n",
+            "criterios_aceite": [
+              "A função deve receber duas tuplas de 2 elementos cada.",
+              "Deve retornar um valor numérico inteiro ou float positivo.",
+              "Deve tratar corretamente coordenadas negativas."
+            ],
+            "dicas": [
+              "Use a função embutida `abs()` do Python para calcular valores absolutos.",
+              "Você pode desempacotar as tuplas com `x1, y1 = ponto_a`."
+            ]
+          }
+        },
+        "intermediario": {
+          "titulo": "Python Orientado a Objetos e Manipulação de Arquivos",
+          "carga_horaria": 35,
+          "objetivo": "Construir sistemas modulares com classes, lidar com exceções e manipular arquivos JSON e CSV.",
+          "modulos": [
+            {
+              "nome": "Programação Orientada a Objetos (POO)",
+              "descricao": "Classes, objetos, encapsulamento e herança.",
+              "topicos": ["Classes e Métodos __init__", "Herança e Polimorfismo", "Properties e Encapsulamento"]
+            },
+            {
+              "nome": "Manipulação de Arquivos e Tratamento de Erros",
+              "descricao": "Leitura e escrita de dados com segurança e robustez.",
+              "topicos": ["Tratamento de Exceções try/except/finally", "Context Managers (with open)", "Serialização JSON e parsing"]
+            },
+            {
+              "nome": "Módulos, Pacotes e Virtualenv",
+              "descricao": "Estruturação profissional de projetos Python.",
+              "topicos": ["Importações e __name__ == '__main__'", "Ambientes Virtuais venv", "Gerenciamento de dependências"]
+            }
+          ],
+          "desafio": {
+            "id": "py-int-01",
+            "titulo": "Filtro e Agrupamento de Pontos de Interesse (POI)",
+            "enunciado": "Crie uma classe `GerenciadorPOIs` que permita adicionar pontos de interesse com formato `{'nome': str, 'categoria': str, 'avaliacao': float}` e possua um método `filtrar_por_categoria_e_nota(categoria, nota_minima)` que retorne apenas os locais correspondentes ordenados por nota decrescente.",
+            "entrada_exemplo": "pois = [{'nome': 'Parque Central', 'categoria': 'lazer', 'avaliacao': 4.8}, {'nome': 'Museu Histórico', 'categoria': 'cultura', 'avaliacao': 4.5}]",
+            "saida_exemplo": "filtrar_por_categoria_e_nota('lazer', 4.0) -> [{'nome': 'Parque Central', 'categoria': 'lazer', 'avaliacao': 4.8}]",
+            "template_codigo": "class GerenciadorPOIs:\n    def __init__(self):\n        self.pois = []\n\n    def adicionar_poi(self, nome: str, categoria: str, avaliacao: float) -> None:\n        # TODO: Adicionar à lista\n        pass\n\n    def filtrar_por_categoria_e_nota(self, categoria: str, nota_minima: float) -> list:\n        # TODO: Retornar lista filtrada e ordenada\n        pass\n",
+            "criterios_aceite": [
+              "A classe deve armazenar múltiplos POIs em memória.",
+              "O método de filtro deve ser case-insensitive para a categoria.",
+              "A lista resultante deve vir ordenada da maior para a menor avaliação."
+            ],
+            "dicas": [
+              "Use a função `sorted()` com `key=lambda x: x['avaliacao']` e `reverse=True`.",
+              "Normalize strings com `.lower()`."
+            ]
+          }
+        },
+        "avancado": {
+          "titulo": "Engenharia de Software e APIs Assíncronas em Python",
+          "carga_horaria": 45,
+          "objetivo": "Dominar concorrência, metaprogramação, tipagem estática e criação de serviços assíncronos.",
+          "modulos": [
+            {
+              "nome": "Concorrência e AsyncIO",
+              "descricao": "Programação reativa e I/O não bloqueante.",
+              "topicos": ["Corrotinas async/await", "Tasks e Gather em asyncio", "Gerenciamento de conexões assíncronas"]
+            },
+            {
+              "nome": "Design Patterns e Tipagem Avançada",
+              "descricao": "Clean Architecture e robustez em tempo de desenvolvimento.",
+              "topicos": ["Decorators e Metaclasses", "Type Hints e Protocolos (typing)", "Padrões Factory, Singleton e Repository"]
+            },
+            {
+              "nome": "Testes Automatizados e Otimização",
+              "descricao": "Qualidade de código, profiling e testes de unidade com mocks.",
+              "topicos": ["Testes com unittest e pytest", "Mocks e Fixtures", "Profiling e Otimização de Performance"]
+            }
+          ],
+          "desafio": {
+            "id": "py-adv-01",
+            "titulo": "Processador Concorrente de Telemetria com Cache",
+            "enunciado": "Implemente um decorator `@memoize_com_expiracao(segundos)` que armazene em cache o retorno de funções e invalide os dados após o tempo limite, e aplique-o em uma função que simula o cálculo de distância geodésica.",
+            "entrada_exemplo": "@memoize_com_expiracao(2)\ndef rota(lat1, lon1, lat2, lon2): ...",
+            "saida_exemplo": "Primeira chamada calcula; chamadas dentro de 2s retornam do cache imediatamente.",
+            "template_codigo": "import time\nfrom functools import wraps\n\ndef memoize_com_expiracao(segundos: int):\n    def decorador(func):\n        cache = {}\n        @wraps(func)\n        def wrapper(*args, **kwargs):\n            # TODO: Implementar lógica de chave, timestamp e expiração\n            pass\n        return wrapper\n    return decorador\n",
+            "criterios_aceite": [
+              "O decorator deve manter a assinatura da função original (`functools.wraps`).",
+              "Chamadas com os mesmos argumentos dentro da janela devem retornar sem reexecutar.",
+              "Após a janela de expiração, a função deve ser recalculada."
+            ],
+            "dicas": [
+              "Utilize `time.time()` para registrar quando o item foi armazenado.",
+              "A chave do cache pode ser uma tupla de `(args, frozenset(kwargs.items()))`."
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "javascript",
+      "nome": "JavaScript Full-Stack & Interatividade",
+      "descricao": "Construa interfaces modernas, manipule o DOM e crie serviços backend com Node.js.",
+      "icone": "⚡",
+      "niveis": {
+        "iniciante": {
+          "titulo": "Fundamentos da Linguagem JavaScript",
+          "carga_horaria": 20,
+          "objetivo": "Compreender variáveis, funções, operadores e manipulação do DOM e arrays no navegador.",
+          "modulos": [
+            {
+              "nome": "Estrutura Básica e Tipos",
+              "descricao": "Declarações modernas let/const, tipos primitivos e coerção.",
+              "topicos": ["let, const e escopo de bloco", "Tipos primitivos e Template Literals", "Operadores ternários e lógicos"]
+            },
+            {
+              "nome": "Funções e Métodos de Array",
+              "descricao": "Programação funcional moderna no JS.",
+              "topicos": ["Arrow Functions", "map, filter, reduce e forEach", "Desestruturação e Spread Operator"]
+            },
+            {
+              "nome": "Eventos e Interação com Usuário",
+              "descricao": "Escuta de eventos e dinamismo no front-end.",
+              "topicos": ["querySelector e manipulação de elementos", "addEventListener", "Prevenção de comportamento padrão"]
+            }
+          ],
+          "desafio": {
+            "id": "js-ini-01",
+            "titulo": "Formatador de Coordenadas Geográficas para Exibição",
+            "enunciado": "Crie uma função `formatarCoordenada(lat, lon, formato)` que receba latitude, longitude numéricas e um formato ('DMS' ou 'DECIMAL') e retorne a string formatada amigável.",
+            "entrada_exemplo": "formatarCoordenada(-23.5505, -46.6333, 'DECIMAL')",
+            "saida_exemplo": "'Lat: -23.5505°, Lon: -46.6333°'",
+            "template_codigo": "function formatarCoordenada(lat, lon, formato = 'DECIMAL') {\n  // TODO: Implementar formatação\n}\n",
+            "criterios_aceite": [
+              "Deve retornar string formatada com duas casas decimais no mínimo para DECIMAL.",
+              "Deve lançar erro explicativo caso lat ou lon não sejam números válidos."
+            ],
+            "dicas": [
+              "Use Number.isFinite() para validar as entradas numéricas.",
+              "Template strings facilitam a interpolação."
+            ]
+          }
+        },
+        "intermediario": {
+          "titulo": "JavaScript Assíncrono e Node.js",
+          "carga_horaria": 30,
+          "objetivo": "Dominar Promises, async/await, requisições HTTP via Fetch/Axios e módulos no Node.js.",
+          "modulos": [
+            {
+              "nome": "Programação Assíncrona",
+              "descricao": "Event Loop, Promises e async/await.",
+              "topicos": ["Event Loop e Call Stack", "Promises e tratamento com .then/.catch", "Sintaxe async/await com try/catch"]
+            },
+            {
+              "nome": "Consumo de APIs REST e JSON",
+              "descricao": "Comunicação com serviços web modernos.",
+              "topicos": ["Fetch API e Headers", "Códigos de Status HTTP", "Parseamento e Envio de JSON"]
+            },
+            {
+              "nome": "Fundamentos de Node.js e NPM",
+              "descricao": "Execução no servidor e ecossistema de pacotes.",
+              "topicos": ["Módulos CommonJS vs ES Modules", "Package.json e dependências", "Manipulação de arquivos com fs/promises"]
+            }
+          ],
+          "desafio": {
+            "id": "js-int-01",
+            "titulo": "Buscador Assíncrono com Mecanismo de Retry",
+            "enunciado": "Implemente uma função assíncrona `buscarComRetry(fetchFn, maxTentativas, intervaloMs)` que execute uma chamada de rede assíncrona e, em caso de falha, tente novamente até o número máximo especificado antes de rejeitar a Promise.",
+            "entrada_exemplo": "buscarComRetry(chamarApiGeo, 3, 500)",
+            "saida_exemplo": "Retorna os dados da primeira tentativa bem-sucedida",
+            "template_codigo": "async function buscarComRetry(fetchFn, maxTentativas = 3, intervaloMs = 1000) {\n  // TODO: Implementar laço com retry e espera\n}\n",
+            "criterios_aceite": [
+              "Deve resolver imediatamente se a primeira tentativa der certo.",
+              "Deve aguardar intervaloMs entre tentativas com setTimeout/Promise.",
+              "Se todas as tentativas falharem, deve lançar o último erro capturado."
+            ],
+            "dicas": [
+              "Crie um helper `const sleep = ms => new Promise(r => setTimeout(r, ms))`."
+            ]
+          }
+        },
+        "avancado": {
+          "titulo": "Arquitetura Front & Backend Avançada com TypeScript",
+          "carga_horaria": 40,
+          "objetivo": "Desenvolver aplicações escaláveis com TypeScript, WebSockets e padrões de projeto em Node.js.",
+          "modulos": [
+            {
+              "nome": "TypeScript e Tipagem Forte",
+              "descricao": "Segurança e tipagem estática no desenvolvimento JS.",
+              "topicos": ["Interfaces e Types", "Generics e Utility Types", "Configuração do tsconfig.json"]
+            },
+            {
+              "nome": "Comunicação em Tempo Real e WebSockets",
+              "descricao": "Streaming e mensageria bidirecional.",
+              "topicos": ["Protocolo WebSocket nativo", "Eventos de conexão e desconexão", "Broadcast e canais temáticos"]
+            },
+            {
+              "nome": "Clean Architecture em Node.js",
+              "descricao": "Separação de responsabilidades e desacoplamento.",
+              "topicos": ["Injeção de Dependências", "Camadas de Domínio, Caso de Uso e Repositório", "Validação com Zod/Joi"]
+            }
+          ],
+          "desafio": {
+            "id": "js-adv-01",
+            "titulo": "Gerenciador de Eventos Geoespaciais com Pub/Sub",
+            "enunciado": "Implemente uma classe tipada `GeoEventEmitter` com métodos `subscribe(evento, handler)`, `unsubscribe(evento, handler)` e `publish(evento, payload)` com suporte a listeners síncronos e assíncronos.",
+            "entrada_exemplo": "emitter.subscribe('alerta-clima', data => console.log(data))",
+            "saida_exemplo": "emitter.publish('alerta-clima', { regiao: 'Sul', risco: 'alto' })",
+            "template_codigo": "class GeoEventEmitter {\n  constructor() {\n    this.listeners = new Map();\n  }\n  subscribe(evento, callback) {\n    // TODO: Adicionar callback ao evento\n  }\n  publish(evento, dados) {\n    // TODO: Notificar inscritos\n  }\n}\n",
+            "criterios_aceite": [
+              "Permitir múltiplos ouvintes por evento.",
+              "Permitir remoção precisa do listener.",
+              "Não quebrar se o evento emitido não tiver inscritos."
+            ],
+            "dicas": [
+              "Use um `Map<string, Set<Function>>` para evitar duplicatas."
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "sql",
+      "nome": "SQL & Bancos de Dados Relacionais",
+      "descricao": "Modelagem, consultas analíticas, índices e geoprocessamento com SQL e PostGIS.",
+      "icone": "🗄️",
+      "niveis": {
+        "iniciante": {
+          "titulo": "Fundamentos de Bancos de Dados e DML",
+          "carga_horaria": 15,
+          "objetivo": "Escrever consultas SQL para seleção, filtragem, ordenação e agregação básica.",
+          "modulos": [
+            {
+              "nome": "Introdução a Bancos Relacionais e DDL",
+              "descricao": "Criação de tabelas e tipos de dados relacionais.",
+              "topicos": ["Tabelas, Colunas e Chaves Primárias", "CREATE TABLE e ALTER TABLE", "Tipos Numéricos, Textos e Datas"]
+            },
+            {
+              "nome": "Consultas Básicas (SELECT e WHERE)",
+              "descricao": "Filtros e buscas condicionais.",
+              "topicos": ["SELECT, FROM e ALIAS (AS)", "Filtros com WHERE, AND, OR, NOT", "Operadores LIKE, IN, BETWEEN"]
+            },
+            {
+              "nome": "Ordenação e Paginação",
+              "descricao": "Organização do resultado de consultas.",
+              "topicos": ["ORDER BY ASC/DESC", "LIMIT e OFFSET", "DISTINCT para valores únicos"]
+            }
+          ],
+          "desafio": {
+            "id": "sql-ini-01",
+            "titulo": "Consulta de Cidades mais Populosas por Região",
+            "enunciado": "Escreva uma consulta SQL que retorne o `nome`, `populacao` e `regiao` das cidades com população superior a 500.000 habitantes, ordenadas da mais populosa para a menos populosa, limitando a 10 resultados.",
+            "entrada_exemplo": "Tabela `cidades` (id, nome, regiao, populacao)",
+            "saida_exemplo": "Colunas: nome, populacao, regiao | 10 linhas em ordem decrescente de populacao",
+            "template_codigo": "-- Escreva sua consulta SQL abaixo:\nSELECT nome, populacao, regiao\nFROM cidades\n-- TODO: Adicione o filtro, ordenação e limite\n;\n",
+            "criterios_aceite": [
+              "Filtrar população > 500000.",
+              "Ordenar por populacao DESC.",
+              "Limitar a 10 registros."
+            ],
+            "dicas": [
+              "Lembre-se da ordem das cláusulas: SELECT -> FROM -> WHERE -> ORDER BY -> LIMIT."
+            ]
+          }
+        },
+        "intermediario": {
+          "titulo": "Junções, Agregações e Subconsultas",
+          "carga_horaria": 25,
+          "objetivo": "Unir tabelas com JOINs, agrupar dados com GROUP BY / HAVING e utilizar subqueries.",
+          "modulos": [
+            {
+              "nome": "Relacionamentos e JOINs",
+              "descricao": "Conectando múltiplas tabelas com integridade referencial.",
+              "topicos": ["Chaves Estrangeiras (Foreign Keys)", "INNER JOIN, LEFT JOIN e RIGHT JOIN", "Tratamento de nulos em junções"]
+            },
+            {
+              "nome": "Funções de Agregação e Agrupamento",
+              "descricao": "Estatísticas e sumários agregados de grandes volumes.",
+              "topicos": ["COUNT, SUM, AVG, MIN, MAX", "GROUP BY de múltiplas colunas", "Filtros pós-agregação com HAVING"]
+            },
+            {
+              "nome": "Subconsultas e Views",
+              "descricao": "Consultas aninhadas e tabelas virtuais para reutilização.",
+              "topicos": ["Subqueries no WHERE e no FROM", "Subqueries correlacionadas", "Criação de VIEWs"]
+            }
+          ],
+          "desafio": {
+            "id": "sql-int-01",
+            "titulo": "Média Salarial por Departamento com Filtro de Volume",
+            "enunciado": "Escreva uma consulta que liste o nome do departamento e a média salarial de seus funcionários, exibindo apenas departamentos com mais de 5 funcionários e ordenados pela maior média.",
+            "entrada_exemplo": "Tabelas: `departamentos` (id, nome) e `funcionarios` (id, departamento_id, salario)",
+            "saida_exemplo": "departamento_nome | media_salarial (apenas deptos com COUNT > 5)",
+            "template_codigo": "SELECT d.nome AS departamento_nome, ROUND(AVG(f.salario), 2) AS media_salarial\nFROM departamentos d\nJOIN funcionarios f ON d.id = f.departamento_id\n-- TODO: Agrupar, filtrar departamentos com > 5 funcionários e ordenar\n;\n",
+            "criterios_aceite": [
+              "Utilizar INNER JOIN entre departamentos e funcionários.",
+              "Usar GROUP BY d.id, d.nome.",
+              "Usar HAVING COUNT(f.id) > 5.",
+              "Ordenar por media_salarial DESC."
+            ],
+            "dicas": [
+              "Filtros sobre funções de agregação pertencem à cláusula HAVING, não ao WHERE."
+            ]
+          }
+        },
+        "avancado": {
+          "titulo": "Window Functions, Índices e SQL Espacial (PostGIS)",
+          "carga_horaria": 35,
+          "objetivo": "Otimizar consultas complexas com índices, funções de janela e operações geoespaciais.",
+          "modulos": [
+            {
+              "nome": "Window Functions (Funções de Janela)",
+              "descricao": "Cálculos analíticos sem perda de granularidade.",
+              "topicos": ["ROW_NUMBER(), RANK() e DENSE_RANK()", "PARTITION BY e ORDER BY nas janelas", "LEAD, LAG e médias móveis"]
+            },
+            {
+              "nome": "Planos de Execução e Otimização",
+              "descricao": "Entendendo EXPLAIN ANALYZE e tipos de índices.",
+              "topicos": ["EXPLAIN e EXPLAIN ANALYZE", "Índices B-Tree, Hash e GiST", "Estratégias para evitar Seq Scans desnecessários"]
+            },
+            {
+              "nome": "Extensão PostGIS e Consultas Geoespaciais",
+              "descricao": "Manipulação de geometrias e geografias com SQL espacial.",
+              "topicos": ["Tipos GEOMETRY e GEOGRAPHY", "ST_Distance, ST_DWithin e ST_Contains", "Índices espaciais GiST para alta performance"]
+            }
+          ],
+          "desafio": {
+            "id": "sql-adv-01",
+            "titulo": "Localização de POIs em Raio de Proximidade (PostGIS)",
+            "enunciado": "Escreva uma consulta PostGIS que selecione todos os hospitais localizados a até 5.000 metros de um ponto fixo (lat: -23.5505, lon: -46.6333), retornando o nome e a distância calculada em metros, ordenados do mais próximo para o mais distante.",
+            "entrada_exemplo": "Tabela `locais` (id, nome, tipo, geom)",
+            "saida_exemplo": "nome | distancia_metros (apenas tipo = 'hospital' em raio de 5km)",
+            "template_codigo": "SELECT \n  nome,\n  ST_Distance(\n    geom::geography, \n    ST_SetSRID(ST_MakePoint(-46.6333, -23.5505), 4326)::geography\n  ) AS distancia_metros\nFROM locais\nWHERE tipo = 'hospital'\n  -- TODO: Adicionar filtro espacial ST_DWithin e ordenação\n;\n",
+            "criterios_aceite": [
+              "Utilizar ST_DWithin com geography para medição precisa em metros.",
+              "Filtrar pelo tipo 'hospital'.",
+              "Ordenar por distancia_metros ASC."
+            ],
+            "dicas": [
+              "No PostGIS, `ST_MakePoint` recebe primeiro a longitude (X) e depois a latitude (Y)."
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "geoprocessamento",
+      "nome": "Geotecnologias & Python Espacial",
+      "descricao": "Trabalhe com shapefiles, GeoJSON, sensoriamento remoto e mapas interativos.",
+      "icone": "🌍",
+      "niveis": {
+        "iniciante": {
+          "titulo": "Fundamentos de Dados Geoespaciais e Sistemas de Coordenadas",
+          "carga_horaria": 20,
+          "objetivo": "Entender projeções cartográficas, formatos vetoriais (Shapefile, GeoJSON) e biblioteca Shapely.",
+          "modulos": [
+            {
+              "nome": "Conceitos Cartográficos e CRS",
+              "descricao": "Sistemas de Referência de Coordenadas e Projeções.",
+              "topicos": ["Datum e Elipsoides (WGS84, SIRGAS2000)", "EPSG Codes (4326 vs 3857)", "Coordenadas Geográficas vs Projetadas"]
+            },
+            {
+              "nome": "Formatos Vetoriais",
+              "descricao": "Arquivos padrão da indústria geoespacial.",
+              "topicos": ["GeoJSON e suas estruturas FeatureCollection", "Shapefiles e seus arquivos auxiliares", "Geopackage (GPKG)"]
+            },
+            {
+              "nome": "Geometrias Básicas com Shapely",
+              "descricao": "Criação de pontos, linhas e polígonos programaticamente.",
+              "topicos": ["Point, LineString e Polygon", "Cálculo de área e perímetro", "Operações booleanas (intersects, contains)"]
+            }
+          ],
+          "desafio": {
+            "id": "geo-ini-01",
+            "titulo": "Validador de Inclusão de Ponto em Área de Preservação",
+            "enunciado": "Implemente uma função `verificar_ponto_em_area(ponto_lat_lon, vertices_poligono)` que determine se uma coordenada está contida dentro de um polígono de proteção ambiental.",
+            "entrada_exemplo": "ponto = (-22.90, -43.17), vertices = [(-22.8, -43.1), (-22.8, -43.3), (-23.0, -43.3), (-23.0, -43.1)]",
+            "saida_exemplo": "True",
+            "template_codigo": "def verificar_ponto_em_area(ponto: tuple, vertices: list) -> bool:\n    # TODO: Implementar usando lógica de ray-casting ou biblioteca geométrica\n    pass\n",
+            "criterios_aceite": [
+              "Retornar True se o ponto estiver estritamente dentro ou na borda.",
+              "Retornar False se estiver fora.",
+              "Tratar coordenadas no formato (lat, lon)."
+            ],
+            "dicas": [
+              "O algoritmo clássico de Ray Casting (cruzamento de retas) permite testar pontos em polígonos sem bibliotecas pesadas."
+            ]
+          }
+        },
+        "intermediario": {
+          "titulo": "GeoPandas e Mapas Interativos com Leaflet/Folium",
+          "carga_horaria": 30,
+          "objetivo": "Manipular camadas geoespaciais em DataFrames e renderizar visualizações web.",
+          "modulos": [
+            {
+              "nome": "GeoDataFrames com GeoPandas",
+              "descricao": "Pandas com superpoderes espaciais.",
+              "topicos": ["Leitura e escrita de Shapefile e GeoJSON", "Reprojeção com to_crs()", "Spatial Joins (sjoin)"]
+            },
+            {
+              "nome": "Visualização Interativa com Folium",
+              "descricao": "Mapas interativos no navegador.",
+              "topicos": ["Mapas base OpenStreetMap", "Adição de Marcadores e Popups", "Mapas de Calor (Heatmaps) e Coropléticos"]
+            },
+            {
+              "nome": "Geocodificação e Rotas",
+              "descricao": "Conversão de endereços em coordenadas e cálculo de rotas.",
+              "topicos": ["Geocodificação com Nominatim/OSM", "APIs de Roteamento (OSRM)", "Cálculo de isócronas de tempo de viagem"]
+            }
+          ],
+          "desafio": {
+            "id": "geo-int-01",
+            "titulo": "Gerador de GeoJSON para Cluster de Incidentes",
+            "enunciado": "Crie uma função `converter_para_geojson(lista_incidentes)` que receba uma lista de dicionários com `{id, titulo, latitude, longitude, severidade}` e gere uma estrutura GeoJSON válida do tipo FeatureCollection.",
+            "entrada_exemplo": "[{'id': 1, 'titulo': 'Deslizamento', 'latitude': -22.9, 'longitude': -43.2, 'severidade': 'alta'}]",
+            "saida_exemplo": "{'type': 'FeatureCollection', 'features': [{'type': 'Feature', 'geometry': {'type': 'Point', 'coordinates': [-43.2, -22.9]}, 'properties': {'id': 1, 'titulo': 'Deslizamento', 'severidade': 'alta'}}]}",
+            "template_codigo": "def converter_para_geojson(incidentes: list) -> dict:\n    # TODO: Montar FeatureCollection no padrão RFC 7946\n    pass\n",
+            "criterios_aceite": [
+              "A estrutura resultante deve seguir a RFC 7946 (GeoJSON).",
+              "Lembre-se: em GeoJSON a coordenada é [longitude, latitude].",
+              "Preservar todas as propriedades no objeto properties."
+            ],
+            "dicas": [
+              "GeoJSON adota a ordem [X, Y], ou seja, [longitude, latitude]."
+            ]
+          }
+        },
+        "avancado": {
+          "titulo": "Sensoriamento Remoto, Rasterio e Inteligência Artificial Geoespacial",
+          "carga_horaria": 40,
+          "objetivo": "Processamento de imagens de satélite, índices de vegetação (NDVI) e modelos preditivos com IA.",
+          "modulos": [
+            {
+              "nome": "Processamento de Dados Raster",
+              "descricao": "Manipulação de imagens multiespectrais com Rasterio.",
+              "topicos": ["Bandas espectrais e GeoTIFF", "Matrizes de pixels e Transformações Afins", "Cálculo de NDVI e índices de água (NDWI)"]
+            },
+            {
+              "nome": "Google Earth Engine e Nuvem",
+              "descricao": "Big Data geoespacial na nuvem.",
+              "topicos": ["Coleções de imagens Landsat e Sentinel", "Mosaicos e Redutores temporais", "Exportação de séries históricas"]
+            },
+            {
+              "nome": "Machine Learning Aplicado a Satélites",
+              "descricao": "Classificação de cobertura do solo e detecção de mudanças.",
+              "topicos": ["Classificação Supervisionada (Random Forest)", "Segmentação com Redes Neurais Convolucionais", "Detecção de desmatamento"]
+            }
+          ],
+          "desafio": {
+            "id": "geo-adv-01",
+            "titulo": "Calculador de Índice de Vegetação (NDVI) e Alerta de Seca",
+            "enunciado": "Implemente uma função `calcular_estatisticas_ndvi(banda_nir, banda_red)` que receba duas matrizes de mesma dimensão, calcule o NDVI ((NIR - RED) / (NIR + RED)), normalize os valores entre -1 e 1 e retorne a porcentagem de área com vegetação saudável (NDVI > 0.4).",
+            "entrada_exemplo": "banda_nir = [[100, 120], [80, 150]], banda_red = [[20, 30], [25, 40]]",
+            "saida_exemplo": "{'media_ndvi': 0.62, 'porcentagem_vegetacao_saudavel': 100.0}",
+            "template_codigo": "def calcular_estatisticas_ndvi(banda_nir: list, banda_red: list) -> dict:\n    # TODO: Calcular NDVI evitando divisão por zero e compilar estatísticas\n    pass\n",
+            "criterios_aceite": [
+              "Tratar divisões por zero com tolerância épsilon.",
+              "Calcular a média do NDVI da matriz.",
+              "Calcular o percentual de pixels com NDVI > 0.4."
+            ],
+            "dicas": [
+              "Adicione um valor mínimo 1e-6 no denominador para prevenir ZeroDivisionError."
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "ibm-bob",
+      "nome": "IBM Bob & Desenvolvimento com Agentes de IA",
+      "descricao": "Domine o uso do IBM Bob como pair programmer, subagentes e integração via Model Context Protocol (MCP).",
+      "icone": "🤖",
+      "niveis": {
+        "iniciante": {
+          "titulo": "Fundamentos do IBM Bob e Engenharia de Prompt para Código",
+          "carga_horaria": 15,
+          "objetivo": "Aprender a operar o assistente de código IBM Bob, escrever prompts com contexto e refatorar código com IA.",
+          "modulos": [
+            {
+              "nome": "Conhecendo o IBM Bob",
+              "descricao": "Arquitetura e papel de um agente inteligente no ciclo SDLC.",
+              "topicos": ["O que é o IBM Bob", "Integração com IDEs e terminal", "Contexto de projeto e codebase"]
+            },
+            {
+              "nome": "Técnicas de Prompting para Desenvolvedores",
+              "descricao": "Instruções claras, Few-Shot e restrições.",
+              "topicos": ["Role Prompting e Objetivos Claros", "Instruções com Restrições Negativas e Formato", "Chain of Thought no Raciocínio de Código"]
+            },
+            {
+              "nome": "Refatoração e Documentação Guiada por IA",
+              "descricao": "Elevação de qualidade e criação de testes.",
+              "topicos": ["Geração de Docstrings e READMEs", "Detecção de Code Smells e Otimizações", "Criação de Casos de Teste"]
+            }
+          ],
+          "desafio": {
+            "id": "bob-ini-01",
+            "titulo": "Estruturador de Prompt para Geração de Funções Utilitárias",
+            "enunciado": "Crie uma função `formatar_prompt_bob(papel, objetivo, restricoes, formato_saida)` que receba os parâmetros estruturados e retorne um prompt padronizado pronto para ser enviado ao IBM Bob.",
+            "entrada_exemplo": "papel='Engenheiro Python', objetivo='Criar validador de CPF', restricoes=['Não usar regex'], formato_saida='Código puro com testes'",
+            "saida_exemplo": "Retorna texto estruturado com seções [ROLE], [TASK], [CONSTRAINTS], [OUTPUT_FORMAT]",
+            "template_codigo": "def formatar_prompt_bob(papel: str, objetivo: str, restricoes: list, formato_saida: str) -> str:\n    # TODO: Montar prompt estruturado\n    pass\n",
+            "criterios_aceite": [
+              "O resultado deve conter blocos demarcados para cada parâmetro.",
+              "A lista de restrições deve vir formatada como tópicos.",
+              "Retornar string limpa sem espaços residuais."
+            ],
+            "dicas": [
+              "Use formatação em Markdown com títulos e marcadores '- '."
+            ]
+          }
+        },
+        "intermediario": {
+          "titulo": "Subagentes, Ferramentas e Automação do Ciclo de Desenvolvimento",
+          "carga_horaria": 25,
+          "objetivo": "Orquestrar múltiplos agentes, automatizar testes e construir ferramentas customizadas.",
+          "modulos": [
+            {
+              "nome": "Arquitetura de Subagentes",
+              "descricao": "Divisão de tarefas complexas em agentes especializados.",
+              "topicos": ["Agente de Pesquisa vs Agente de Implementação", "Comunicação inter-agentes", "Fluxo de aprovação e revisão"]
+            },
+            {
+              "nome": "Execução Segura e Ferramental (Tool Calling)",
+              "descricao": "Habilitando IA a interagir com arquivos e comandos.",
+              "topicos": ["Definição de Schemas de Ferramentas", "Execução de testes automatizados pelo agente", "Tratamento de erros de execução"]
+            },
+            {
+              "nome": "Workflows de CI/CD Integrados com IA",
+              "descricao": "Agentes no pipeline de entrega.",
+              "topicos": ["Geração automática de Pull Requests", "Geração de Changelogs e Notas de Versão", "Revisão estática de segurança"]
+            }
+          ],
+          "desafio": {
+            "id": "bob-int-01",
+            "titulo": "Roteador de Tarefas para Subagentes Especializados",
+            "enunciado": "Implemente uma função `rotear_tarefa_agente(descricao_tarefa)` que analise o texto de uma requisição e direcione para o agente correto ('pesquisador', 'desenvolvedor', 'testador' ou 'documentador') com base em palavras-chave e intenção.",
+            "entrada_exemplo": "rotear_tarefa_agente('Escrever testes unitários para a função de cálculo')",
+            "saida_exemplo": "'testador'",
+            "template_codigo": "def rotear_tarefa_agente(descricao_tarefa: str) -> str:\n    # TODO: Identificar palavras-chave e retornar o agente adequado\n    pass\n",
+            "criterios_aceite": [
+              "Retornar 'testador' para palavras como 'teste', 'mock', 'assert'.",
+              "Retornar 'documentador' para 'readme', 'docstring', 'manual'.",
+              "Retornar 'pesquisador' para 'investigar', 'buscar', 'pesquisar'.",
+              "Retornar 'desenvolvedor' como fallback ou para 'criar', 'implementar', 'construir'."
+            ],
+            "dicas": [
+              "Converta a descrição para minúsculas antes de verificar a presença dos termos."
+            ]
+          }
+        },
+        "avancado": {
+          "titulo": "Model Context Protocol (MCP) e Agentes Corporativos",
+          "carga_horaria": 35,
+          "objetivo": "Implementar servidores MCP, expor recursos e ferramentas nativas para LLMs e integrar com ferramentas corporativas.",
+          "modulos": [
+            {
+              "nome": "Protocolo Model Context Protocol (MCP)",
+              "descricao": "O padrão aberto de integração entre modelos e fontes de contexto.",
+              "topicos": ["Especificação JSON-RPC 2.0 do MCP", "Comunicação via Stdio e SSE", "Ciclo de vida: initialize, capabilities, tools e resources"]
+            },
+            {
+              "nome": "Construção de Servidores MCP",
+              "descricao": "Desenvolvendo ferramentas que qualquer agente de IA pode invocar.",
+              "topicos": ["Definição de Tools com JSON Schema", "Tratamento de chamadas e respostas de erro", "Exposição de Resources dinâmicos"]
+            },
+            {
+              "nome": "Segurança e Governança de Agentes",
+              "descricao": "Uso responsável e seguro de IA em ambientes corporativos.",
+              "topicos": ["Prevenção de vazamento de credenciais e tokens", "Sandboxing de comandos", "Auditoria de chamadas de ferramentas"]
+            }
+          ],
+          "desafio": {
+            "id": "bob-adv-01",
+            "titulo": "Despachante de Ferramentas MCP (JSON-RPC 2.0)",
+            "enunciado": "Implemente uma função `despachar_requisicao_mcp(requisicao_json_rpc, registro_ferramentas)` que receba uma mensagem no padrão JSON-RPC 2.0 com `method: 'tools/call'`, execute a função registrada correspondente passando os argumentos e devolva a resposta padronizada com `jsonrpc: '2.0'`, `id` e `result` (ou `error` em caso de falha).",
+            "entrada_exemplo": "{'jsonrpc': '2.0', 'id': 1, 'method': 'tools/call', 'params': {'name': 'somar', 'arguments': {'a': 5, 'b': 3}}}",
+            "saida_exemplo": "{'jsonrpc': '2.0', 'id': 1, 'result': {'content': [{'type': 'text', 'text': '8'}]}}",
+            "template_codigo": "def despachar_requisicao_mcp(requisicao: dict, ferramentas: dict) -> dict:\n    # TODO: Validar formato JSON-RPC, localizar ferramenta, executar e retornar resposta\n    pass\n",
+            "criterios_aceite": [
+              "Preservar o mesmo ID da requisição na resposta.",
+              "Retornar estrutura de erro com código -32601 caso a ferramenta não exista.",
+              "Retornar resultado no padrão de tool calling do MCP (`content: [{'type': 'text', 'text': ...}]`)."
+            ],
+            "dicas": [
+              "Verifique se o método é 'tools/call' e se `params['name']` está presente no dicionário de ferramentas."
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

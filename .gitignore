@@ -1,0 +1,26 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Caches de teste
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Ambientes virtuais
+.venv/
+venv/
+ENV/
+
+# Arquivos de IDE e SO
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Saídas geradas dinamicamente
+certificados_emitidos/*.html
+certificados_emitidos/*.json
+!certificados_emitidos/.gitkeep
